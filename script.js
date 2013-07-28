@@ -48,41 +48,28 @@
   };
 
   drawLL = function(x, y, rot) {
-    var c, i, _i, _j, _k, _l;
-    c = "#00f";
-    if (rot % 4 === 0) {
-      for (i = _i = -1; _i <= 2; i = ++_i) {
-        if (i < 2) {
-          addBrick(x + i, y, c);
-        } else {
-          addBrick(x + i - 1, y - 1, "#f00");
-        }
-      }
-    }
-    if (rot % 4 === 1) {
-      for (i = _j = -1; _j <= 2; i = ++_j) {
-        if (i < 2) {
+    var c, i, _i;
+    for (i = _i = -1; _i <= 2; i = ++_i) {
+      if (i < 2) {
+        c = "#00f";
+        if (rot % 2) {
           addBrick(x, y + i, c);
         } else {
-          addBrick(x + 1, y + i - 1, "#f00");
-        }
-      }
-    }
-    if (rot % 4 === 2) {
-      for (i = _k = -1; _k <= 2; i = ++_k) {
-        if (i < 2) {
           addBrick(x + i, y, c);
-        } else {
-          addBrick(x + i - 3, y + 1, "#f00");
         }
-      }
-    }
-    if (rot % 4 === 3) {
-      for (i = _l = -1; _l <= 2; i = ++_l) {
-        if (i < 2) {
-          addBrick(x, y + i, c);
-        } else {
-          addBrick(x - 1, y + i - 3, "#f00");
+      } else {
+        c = "#f00";
+        if (rot % 4 === 0) {
+          addBrick(x + i - 1, y - 1, c);
+        }
+        if (rot % 4 === 1) {
+          addBrick(x + 1, y + i - 1, c);
+        }
+        if (rot % 4 === 2) {
+          addBrick(x + i - 3, y + 1, c);
+        }
+        if (rot % 4 === 3) {
+          addBrick(x - 1, y + i - 3, c);
         }
       }
     }

@@ -25,31 +25,24 @@ drawLine = (x, y, rot) ->
     drawBoard()
 
 drawLL = (x, y, rot) ->
-    c = "#00f"
-    if rot % 4 == 0
-        for i in [-1..2]
-            if i < 2
-                addBrick(x+i, y, c)
-            else
-                addBrick(x+i-1, y-1, "#f00")
-    if rot % 4 == 1
-        for i in [-1..2]
-            if i < 2
+    
+    for i in [-1..2]
+        if i < 2
+            c = "#00f"
+            if rot % 2 # if rot is odd
                 addBrick(x, y+i, c)
-            else
-                addBrick(x+1, y+i-1, "#f00")
-    if rot % 4 == 2
-        for i in [-1..2]
-            if i < 2
+            else       # if rot is even
                 addBrick(x+i, y, c)
-            else
-                addBrick(x+i-3, y+1, "#f00")
-    if rot % 4 == 3
-        for i in [-1..2]
-            if i < 2
-                addBrick(x, y+i, c)
-            else
-                addBrick(x-1, y+i-3, "#f00")
+        else
+            c = "#f00"
+            if rot % 4 == 0
+                addBrick(x+i-1, y-1, c)
+            if rot % 4 == 1
+                addBrick(x+1, y+i-1, c)
+            if rot % 4 == 2
+                addBrick(x+i-3, y+1, c)
+            if rot % 4 == 3
+                addBrick(x-1, y+i-3, c)
     drawBoard()
 
 clearBoard = ->
