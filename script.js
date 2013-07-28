@@ -59,17 +59,10 @@
         }
       } else {
         c = "#f00";
-        if (rot % 4 === 0) {
-          addBrick(x + i - 1, y - 1, c);
-        }
-        if (rot % 4 === 1) {
-          addBrick(x + 1, y + i - 1, c);
-        }
-        if (rot % 4 === 2) {
-          addBrick(x + i - 3, y + 1, c);
-        }
-        if (rot % 4 === 3) {
-          addBrick(x - 1, y + i - 3, c);
+        if (rot % 2 === 0) {
+          addBrick(x + i - (rot % 4 + 1), y + ((rot % 4) * 1 - 1), c);
+        } else {
+          addBrick(x + ((rot % 4) * -1 + 2), y + i - (rot % 4 + 0), c);
         }
       }
     }
